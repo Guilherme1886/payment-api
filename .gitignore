@@ -1,0 +1,46 @@
+# Gradle
+.gradle/
+build/
+
+# Build artifacts
+*.jar
+*.war
+*.ear
+*.class
+!gradle/wrapper/gradle-wrapper.jar
+
+# Kotlin
+*.kotlin_module
+
+# IDE — IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# IDE — Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# IDE — VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Environment / local config
+.env
+.env.local
+application-local.properties
+application-local.yml
+
+# Test reports
+build/reports/
+build/test-results/

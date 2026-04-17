@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/payment_db
-    username: payment
-    password: payment123
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/payment_db}
+    username: ${SPRING_DATASOURCE_USERNAME:payment}
+    password: ${SPRING_DATASOURCE_PASSWORD:payment123}
   jpa:
     hibernate:
       ddl-auto: validate
@@ -14,8 +14,8 @@ spring:
     locations: classpath:db/migration
 
 jwt:
-  secret: your-256-bit-secret-key-here-change-in-production-please-make-it-long-enough
+  secret: ${JWT_SECRET:dev-only-secret-key-change-in-production-must-be-at-least-64-chars-long}
   expiration: 86400000
 
 server:
-  port: 8080
+  port: ${PORT:8080}

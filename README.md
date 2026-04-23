@@ -2,6 +2,34 @@
 
 A payment processing API built with Spring Boot and Kotlin. Handles user registration, account management, deposits, and peer-to-peer transfers with JWT authentication, strong consistency guarantees, and idempotent transaction processing.
 
+## Live Demo
+
+Base URL: **https://payment-api-qc4l.onrender.com**
+
+> ⚠️ **Cold start warning:** the demo runs on Render's free tier, which hibernates the service after ~15 minutes of inactivity. The first request after a cold start can take **30–60 seconds** to wake the instance and run Flyway migrations. Subsequent requests respond in normal latency. If a request times out, just retry.
+
+**1. Register a user (returns a JWT)**
+```bash
+curl -X POST https://payment-api-qc4l.onrender.com/auth/register \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "email": "alice@example.com",
+    "password": "strong-pass-123",
+    "agencia": "0001",
+    "numeroConta": "12345-6",
+    "titularNome": "Alice Doe",
+    "cpf": "11122233344"
+  }'
+```
+
+**2. Deposit into the newly created account** (replace `<TOKEN>` and `<ACCOUNT_ID>` with the values returned above)
+```bash
+curl -X POST https://payment-api-qc4l.onrender.com/accounts/<ACCOUNT_ID>/deposit \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <TOKEN>' \
+  -d '{"amount": 500.00}'
+```
+
 ## Stack
 
 - **Language:** Kotlin 1.9.25

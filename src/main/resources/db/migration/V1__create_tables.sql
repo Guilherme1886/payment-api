@@ -1,3 +1,6 @@
+CREATE SCHEMA IF NOT EXISTS payment;
+SET search_path TO payment;
+
 CREATE TABLE accounts (
     id UUID PRIMARY KEY,
     agencia VARCHAR(10) NOT NULL,

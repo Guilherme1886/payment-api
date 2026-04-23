@@ -9,9 +9,12 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: payment
   flyway:
     enabled: true
     locations: classpath:db/migration
+    schemas: payment
+    default-schema: payment
 
 jwt:
   secret: ${JWT_SECRET:dev-only-secret-key-change-in-production-must-be-at-least-64-chars-long}
